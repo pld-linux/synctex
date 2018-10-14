@@ -13,6 +13,7 @@ Source0:	https://github.com/jlaurens/synctex/archive/%{gitref}/%{name}-%{gitref}
 URL:		https://github.com/jlaurens/synctex
 BuildRequires:	libtool
 BuildRequires:	zlib-devel
+Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,11 +24,22 @@ document and the PDF output.
 SyncTeX to narzędzie pozwalające na synchronizację między dokumentem
 źródłowym a wyjściem PDF.
 
+%package libs
+Summary:	SyncTeX parser library
+Summary(pl.UTF-8):	Biblioteka analizatora SyncTeX
+Group:		Libraries
+
+%description libs
+SyncTeX parser library.
+
+%description libs -l pl.UTF-8
+Biblioteka analizatora SyncTeX.
+
 %package devel
 Summary:	Header files for synctex library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki synctex
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-libs = %{version}-%{release}
 Requires:	zlib-devel
 
 %description devel
@@ -95,13 +107,16 @@ EOF
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post	libs -p /sbin/ldconfig
+%postun	libs -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc LICENSE README.md synctex_parser_readme.md
 %attr(755,root,root) %{_bindir}/synctex
+
+%files libs
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libsynctex.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libsynctex.so.1
 
