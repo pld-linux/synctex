@@ -85,7 +85,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_includedir}/synctex,%{_pkgco
 libtool --mode=install install libsynctex.la $RPM_BUILD_ROOT%{_libdir}
 libtool --mode=install install synctex $RPM_BUILD_ROOT%{_bindir}
 
-cp -p synctex_parser.h synctex_parser_utils.h $RPM_BUILD_ROOT%{_includedir}/synctex
+cp -p synctex_parser.h synctex_parser_utils.h synctex_version.h $RPM_BUILD_ROOT%{_includedir}/synctex
 
 cat >>$RPM_BUILD_ROOT%{_pkgconfigdir}/synctex.pc <<'EOF'
 prefix=%{_prefix}
