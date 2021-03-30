@@ -1,15 +1,15 @@
 Summary:	Synchronization for TeX
 Summary(pl.UTF-8):	Synchronizacja dla TeXa
 Name:		synctex
-%define	gitref	3131eee3509298751a5991a4a748bcaa8b51f56c
-%define	snap	20171128
+%define	gitref	c11fe00dbdc6423a0e54d4e531563be645f78679
+%define	snap	20200723
 %define	rel	1
-Version:	1.21
+Version:	1.22
 Release:	1.%{snap}.%{rel}
 License:	MIT
 Group:		Applications/Text
 Source0:	https://github.com/jlaurens/synctex/archive/%{gitref}/%{name}-%{gitref}.tar.gz
-# Source0-md5:	419ba7bbca0714bd16246b66f92b2153
+# Source0-md5:	ff0590b4f33dcffbbe1c7debed4d7a01
 URL:		https://github.com/jlaurens/synctex
 BuildRequires:	libtool
 BuildRequires:	zlib-devel
@@ -66,7 +66,7 @@ Statyczna biblioteka synctex.
 cat >synctex_parser_c-auto.h <<EOF
 #define HAVE_FMAX 1
 #define HAVE_LOCALE_H 1
-#define SETLOCALE 1
+#define HAVE_SETLOCALE 1
 #define SYNCTEX_INLINE inline
 EOF
 
