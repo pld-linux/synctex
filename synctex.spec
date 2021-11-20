@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Synchronizacja dla TeXa
 Name:		synctex
 %define	gitref	c11fe00dbdc6423a0e54d4e531563be645f78679
 %define	snap	20200723
-%define	rel	1
+%define	rel	2
 Version:	1.22
 Release:	1.%{snap}.%{rel}
 License:	MIT
